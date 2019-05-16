@@ -4,16 +4,13 @@ MQL binding for the ZeroMQ Lazy Pirate REQ/REP client pattern (latest x86 stable
 ## Project Description
 
 This project contains an Object level abstraction of the Reliable Request/Reply (RRR) aka. Lazy Pirate client pattern.
-
 It provides a high-level abstraction for this common pattern, a REQ/REP with a settable timeout and connection retries attempts.
-
 It can be used as a more robust approach to plain socket interfacing/communication in MetaTrader platform.
-
 Servers/Workers should REP type, as in standard synchronous REQ/REP.
 
 ## Installation
 
-Copy the contents of Libraries and Include folder into MetaTrader's data folder
+Copy the contents of Libraries and Include folder into MetaTrader's data folder.
 Allow dll imports.
 
 ## Testing
@@ -26,7 +23,6 @@ to each worker on every Tick.
 ## Limitations
 You can add up to 65535 servers to this client, if you need more than this, please let me know.
 If a Server/Worker stops responding, the send command will block until all reconnection attempts are done.
-
 
 ## TODO
 - Add usage examples
