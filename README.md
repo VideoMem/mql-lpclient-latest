@@ -21,12 +21,16 @@ Optionally you can test its functionality installing Experts/lpclient_test.mq4 i
 to each worker on every Tick.
 - Close one or both servers, see what happens, open them again, see the results.
 
+Also, you can test it directly from a Windows terminal using the lpclient_test.exe provided in lpc/bin folder.
+
 ## Limitations
 You can add up to 65535 servers to this client, if you need more than this, please let me know.\
 If a Server/Worker stops responding, the send command will block until all reconnection attempts are done.\
-If you delete one worker object after its creation, all set up workers will be deleted, there is no "selective deletion".
+If you delete one worker object after its creation, all configured workers will be deleted, there is no "selective deletion".
 
 ## TODO
 - Add usage examples
-- Add more documentation
+- Add build documentation
+- Add build options
+- Fix CmakeLists.txt
 - Add x64 builds for MT5 x64 platforms
