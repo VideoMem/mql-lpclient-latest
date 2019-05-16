@@ -31,6 +31,6 @@ If you delete one worker object after its creation, all configured workers will 
 ## TODO
 - Add usage examples
 - Add build documentation
-- Add build options
-- Fix CmakeLists.txt
+- Add more compilers support
+- Fix CmakeLists.txt to allow the cross build of lpclient_test.exe
 - Add x64 builds for MT5 x64 platforms
