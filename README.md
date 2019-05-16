@@ -28,6 +28,17 @@ You can add up to 65535 servers to this client, if you need more than this, plea
 If a Server/Worker stops responding, the send command will block until all reconnection attempts are done.\
 If you delete one worker object after its creation, all configured workers will be deleted, there is no "selective deletion".
 
+## Building from sources
+Currently, you can only Cross-Build this on Linux with mingw32.\
+Visual Studio builds will be supported in a future.\
+This project comes with a precompiled libzmq DLL, if you want to build/use another version, place the x86 Release type compiled DLL in lpc/bin
+and make a symbolic link to libzmq.dll
+
+- Install the MinGW compiler toolchain
+- Install Cmake
+- Clone this repository
+- Run build-lnx.sh
+
 ## TODO
 - Add usage examples
 - Add a complete API documentation
