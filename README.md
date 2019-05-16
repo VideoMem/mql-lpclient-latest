@@ -5,7 +5,7 @@ MQL binding for the ZeroMQ Lazy Pirate REQ/REP client pattern (latest x86 stable
 
 This project contains an Object level abstraction of the Reliable Request/Reply (RRR) aka. Lazy Pirate pattern.
 
-It provides a high-level abstraction for this common pattern, a REQ/REP with a settable TIMEOUT and RETRIES attempts.
+It provides a high-level abstraction for this common pattern, a REQ/REP with a settable timeout and connection retries attempts.
 
 It can be used as a more robust approach to plain socket interfacing/communication in MetaTrader platform.
 
