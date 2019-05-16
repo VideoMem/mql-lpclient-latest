@@ -16,9 +16,10 @@ Allow dll imports.
 ## Testing
 Optionally you can test its functionality installing Experts/lpclient_test.mq4 in your experts folder
 
-- Open two ZMQ echo servers on localhost, the default ports are 5555 and 5566
+- Open two [ZMQ echo servers](http://zguide.zeromq.org/py:lpserver) on localhost, the default ports are 5555 and 5566.
 - Run the EA and see its output, if all tests passes successfully, the EA will loop sending test messages
 to each worker on every Tick.
+- Close one or both servers, see what happens, open them again, see the results.
 
 ## Limitations
 You can add up to 65535 servers to this client, if you need more than this, please let me know.\
