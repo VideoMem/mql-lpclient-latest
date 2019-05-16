@@ -22,7 +22,8 @@ to each worker on every Tick.
 
 ## Limitations
 You can add up to 65535 servers to this client, if you need more than this, please let me know.\
-If a Server/Worker stops responding, the send command will block until all reconnection attempts are done.
+If a Server/Worker stops responding, the send command will block until all reconnection attempts are done.\
+If you delete one worker object after its creation, all set up workers will be deleted also.
 
 ## TODO
 - Add usage examples
