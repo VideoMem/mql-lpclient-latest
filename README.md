@@ -30,6 +30,7 @@ If you delete one worker object after its creation, all configured workers will 
 
 ## TODO
 - Add usage examples
+- Add a complete API documentation
 - Add build documentation
 - Add more compilers support
 - Fix CmakeLists.txt to allow the cross build of lpclient_test.exe
