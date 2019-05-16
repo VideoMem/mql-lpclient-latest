@@ -10,7 +10,7 @@ Servers/Workers should be a REP type, as in standard synchronous REQ/REP.
 
 ## Installation
 
-Copy the contents of Libraries and Include folder into MetaTrader's data folder.
+Copy the contents of Libraries and Include folders into MetaTrader's data folder.
 Allow dll imports.
 
 ## Testing
