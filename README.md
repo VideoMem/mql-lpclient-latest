@@ -15,6 +15,7 @@ Its intended for RPC interfacing some complex procedures found in EAs.\
 It works well on Wine 3.0, also.\
 It tries to preserve the string encoding, however at this release,\
 the Unicode pangram test will fail.
+
 The default string encoding method for transferring can be set as:
 
 ```mt4
