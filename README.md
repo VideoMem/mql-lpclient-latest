@@ -21,8 +21,7 @@ It provides:
 - Reliable communication when one or many workers crashes, and some external procedure restarts them.
 - Stable application control, when things don't go as expected.
 
-It tries to preserve the string encoding, however at this release,\
-the Unicode pangram test will fail.\
+It tries to preserve the string encoding, however at this release, the Unicode pangram test will fail.
 It works well on Wine 3.0, also.
 
 
