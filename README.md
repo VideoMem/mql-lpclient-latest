@@ -9,12 +9,22 @@ It provides a high-level abstraction for this common pattern, a REQ/REP with a\
 settable timeout and connection retries attempts.\
 It can be used as a robust text transport to a plain socket interfacing/communication in\MetaTrader platform.\
 Servers/Workers should be a REP type, as in standard synchronous REQ/REP.\
+
+## Features
+
 With this package you can connect and communicate from one Metatrader's EA agent thread,\
 to one or many ZMQ REP servers through a text style messaging API calls.\
 Its intended for RPC interfacing some complex procedures found in EAs.\
-It works well on Wine 3.0, also.\
+
+It provides:
+- Reliable communication when one or many workers have delayed replies.\
+- Reliable communication when one or many workers crashes, and some external procedure restarts them.\
+- Stable application control, when things don't go as expected.
+
 It tries to preserve the string encoding, however at this release,\
 the Unicode pangram test will fail.
+It works well on Wine 3.0, also.\
+
 
 The default string encoding method for transferring can be set as:
 
@@ -76,11 +86,6 @@ to each worker on every Tick.
 
 Also, you can test it directly from a Windows terminal using the lpclient_test.exe provided in lpc/bin folder.
 
-## Goals
-
-Reliable communication when one or many workers have delayed replies.\
-Reliable communication when one or many workers crashes, and some external procedure restarts them.\
-Stable application control, when things don't go as expected.
 
 ## Limitations
 You can add up to 65535 servers to this client, if you need more than this, please let me know.\
