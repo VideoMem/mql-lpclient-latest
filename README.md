@@ -90,8 +90,8 @@ Automated testing routines are described [here](https://github.com/swilwerth/mql
 ## Limitations
 You can add up to 65535 servers to this client, if you need more than this, please let me know.\
 If a Server/Worker stops responding, the send command will block until all reconnection attempts are done.\
-If you delete one worker object after its creation, all configured workers will be deleted, there is no "selective deletion".
-
+If you delete one worker object after its creation, all configured workers will be deleted, there is no "selective deletion".\
+You can not change workers address until them fail a transaction.
 
 ## Building from sources
 Currently, you can only Cross-Build this on Linux with mingw32.\
