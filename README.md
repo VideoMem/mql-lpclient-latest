@@ -4,7 +4,7 @@ MQL binding for the ZeroMQ Lazy Pirate REQ/REP client pattern (latest x86 stable
 ## Project Description
 
 This project contains an approach at object level abstraction of the\
-Reliable Request/Reply (RRR) aka. Lazy Pirate client pattern.\
+Reliable Request/Reply (RRR) aka. [Lazy Pirate client pattern](http://zguide.zeromq.org/php:chapter4).\
 It provides a high-level abstraction for this common pattern, a REQ/REP with a\
 settable timeout and connection retries attempts.\
 It can be used as a robust text transport to a plain socket interfacing/communication in\MetaTrader platform.\
@@ -22,7 +22,7 @@ The default string encoding method for transferring can be set as:
 #include <LPC/LPClient.mqh>
 
 myNewWorker = new LPClient("myNewWorker has name", "tcp://localhost:5555");
-myNewWorker.setEncoding(CP_THREAD_ACP); //it uses the same encoding as this thread (default)
+myNewWorker.setEncoding(CP_THREAD_ACP); //it uses the same [encoding](https://www.mql5.com/es/docs/constants/io_constants/codepageusage) as this thread (default)
 
 string reply = myNewWorker.sendTX("Hello world!");
 Print(reply);
@@ -38,10 +38,9 @@ myNewWorker.setRequestTimeout(2500); //milliseconds (1s = 1000ms), (default 2500
 ```
 
 That needs to be executed before sendTX(), only once, the worker instance will hold its parameters\
-until they are explicitly changed.\
+until they are explicitly changed.
 
-If you get an empty string, you can verify what happened retrieving the error code and\
-the log string of the error.
+If you get an empty string, you can verify what happened retrieving the error code and the log string of the error.
 
 ```mql4
 if (myNewWorker.hasError())  {      //if has error
