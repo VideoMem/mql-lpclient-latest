@@ -84,7 +84,6 @@ Stable application control, when things don't go as expected.
 
 ## Limitations
 You can add up to 65535 servers to this client, if you need more than this, please let me know.\
-However, you can alter the
 If a Server/Worker stops responding, the send command will block until all reconnection attempts are done.\
 If you delete one worker object after its creation, all configured workers will be deleted, there is no "selective deletion".
 
