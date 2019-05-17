@@ -84,7 +84,71 @@ to each worker on every Tick.
 - Close one or both servers, see what happens, open them again, see the results.
 
 Also, you can test it directly from a Windows terminal using the lpclient_test.exe provided in lpc/bin folder.\
-Automated testing routines are described [here](https://github.com/swilwerth/mql-lpclient-latest/blob/master/lpc/lpclient_test.cpp)
+Automated testing routines are described [here](https://github.com/swilwerth/mql-lpclient-latest/blob/master/lpc/lpclient_test.cpp)\
+
+Example tests invocation:
+> wine [lpc_client.exe](https://github.com/swilwerth/mql-lpclient-latest/blob/master/lpc/bin/lpclient_test.exe)
+:: Init Sucess!
+:: Initializing API types offline tests
+Testing integer echo ... Done!
+Testing wide char string echo ... wchar_t* string echo test (reply len: 27) Done!
+Testing standard char string echo ... char* string echo test (reply len: 22) Done!
+Testing pangrams string echo ... Done!
+:: Initializing Workers
+I: connecting to server...
+I: connecting to server...
+:: Testing API non transactional getters & setters
+Testing worker_getaddr() ... Done!
+Testing worker_getname() ... Done!
+Testing worker_getRequestTimeout() ... Done!
+Testing worker_getRequestRetries() ... Done!
+Testing worker_setaddr() ... Done!
+Testing worker_setname() ... Done!
+Testing worker_setRequestTimeout() ... Done!
+Testing worker_setRequestRetries() ... Done!
+:: Testing API non initialized workers call access restriction
+:: Going to online echo tests
+Testing worker connectivity ...
+I: server replied OK (32) bytes
+reply body: 131066 A dummy echo test message
+Last error context: WorkerA::sendTX() sucess!
+Done!
+Pangram echo tests ...
+I: server replied OK (43) bytes
+I: server replied OK (62) bytes
+I: server replied OK (39) bytes
+I: server replied OK (118) bytes
+I: server replied OK (113) bytes
+I: server replied OK (151) bytes
+I: server replied OK (60) bytes
+I: server replied OK (8079) bytes
+I: server replied OK (363) bytes
+Done!
+:: Failed connection test
+I: connecting to server...
+W: no response from server, retrying...
+I: connecting to server...
+W: no response from server, retrying...
+I: connecting to server...
+E: server seems to be offline, abandoning
+I: connecting to server...
+:: Re-initializing Workers
+I: connecting to server...
+I: connecting to server...
+:: Starting REQ/REP infinite loop
+I: server replied OK (21) bytes
+reply body: 0 #this is a R script
+Last error context: WorkerA::sendTX() sucess!
+I: server replied OK (76) bytes
+reply body: 1 { "some_json_log": { "SYMBOL": "EURUSD", "MAGIC": "42", "etc ...":"etc" }}
+Last error context: WorkerB::sendTX() sucess!
+I: server replied OK (21) bytes
+reply body: 2 #this is a R script
+Last error context: WorkerA::sendTX() sucess!
+I: server replied OK (76) bytes
+reply body: 3 { "some_json_log": { "SYMBOL": "EURUSD", "MAGIC": "42", "etc ...":"etc" }}
+Last error context: WorkerB::sendTX() sucess!
+...
 
 
 ## Limitations
