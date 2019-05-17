@@ -41,6 +41,7 @@ const string pangrams(int id, int &max) {
     string pangrams[max] =  {
         "The quick brown fox jumps over the lazy dog",
         "Falsches Üben von Xylophonmusik quält jeden größeren Zwerg",
+        "Høj bly gom vandt fræk sexquiz på wc",
         "El veloz murciélago hindú comía feliz cardillo y kiwi. La cigüeña tocaba el saxofón detrás del palenque de paja",
         "Ταχίστη αλώπηξ βαφής ψημένη γη, δρασκελίζει υπέρ νωθρού κυνός",
         "صِف خَلقَ خَودِ كَمِثلِ الشَمسِ إِذ بَزَغَت — يَحظى الضَجيعُ بِها نَجلاءَ مِعطارِ",
