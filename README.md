@@ -103,7 +103,7 @@ and make a symbolic link to libzmq.dll
 - Add x64 builds for MT5 x64 platforms
 - Add a pipe log for the console output and API methods for retrieving its contents.
 
-##Improvement scenarios
+# Improvement scenarios
 Ciphered transport support
 
 
