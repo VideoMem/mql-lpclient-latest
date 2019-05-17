@@ -114,6 +114,7 @@ and make a symbolic link to libzmq.dll
 - Add a pipe log for the console output and API methods for retrieving its contents.
 
 # Improvement scenarios
+Other patterns\
 Ciphered transport support
 
 
