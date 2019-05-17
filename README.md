@@ -87,7 +87,7 @@ Also, you can test it directly from a Windows terminal using the lpclient_test.e
 Automated testing routines are described [here](https://github.com/swilwerth/mql-lpclient-latest/blob/master/lpc/lpclient_test.cpp)\
 
 Example tests invocation:
-> wine [lpc_client.exe](https://github.com/swilwerth/mql-lpclient-latest/blob/master/lpc/bin/lpclient_test.exe)
+> $ wine [lpc_client.exe](https://github.com/swilwerth/mql-lpclient-latest/blob/master/lpc/bin/lpclient_test.exe)\
 :: Init Sucess!\
 :: Initializing API types offline tests\
 Testing integer echo ... Done!\
