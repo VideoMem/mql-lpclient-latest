@@ -18,7 +18,7 @@ the Unicode pangram test will fail.
 
 The default string encoding method for transferring can be set as:
 
-```mt4
+```mql4
 #include <LPC/LPClient.mqh>
 
 myNewWorker = new LPClient("myNewWorker has name", "tcp://localhost:5555");
