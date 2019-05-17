@@ -22,11 +22,12 @@ The default string encoding method for transferring can be set as:
 #include <LPC/LPClient.mqh>
 
 myNewWorker = new LPClient("myNewWorker has name", "tcp://localhost:5555");
-myNewWorker.setEncoding(CP_THREAD_ACP); //it uses the same [encoding](https://www.mql5.com/es/docs/constants/io_constants/codepageusage) as this thread (default)
+myNewWorker.setEncoding(CP_THREAD_ACP); //it uses the same as this thread (default)
 
 string reply = myNewWorker.sendTX("Hello world!");
 Print(reply);
 ```
+See the encoding Metatrader's string marshalling description [here](https://www.mql5.com/es/docs/constants/io_constants/codepageusage).
 
 If sendTX() fails transmission, it will return an empty string.
 Also, the amount of retries and timeouts can be configured.
