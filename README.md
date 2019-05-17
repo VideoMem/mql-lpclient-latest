@@ -26,7 +26,7 @@ myNewWorker.setEncoding(CP_THREAD_ACP); //it uses the same encoding as this thre
 
 string reply = myNewWorker.sendTX("Hello world!");
 Print(reply);
-´´´
+```
 
 If sendTX() fails transmission, it will return an empty string.
 Also, the amount of retries and timeouts can be configured.
