@@ -27,7 +27,7 @@ myNewWorker.setEncoding(CP_THREAD_ACP); //it uses the same as this thread (defau
 string reply = myNewWorker.sendTX("Hello world!");
 Print(reply);
 ```
-See the encoding Metatrader's string marshalling description [here](https://www.mql5.com/es/docs/constants/io_constants/codepageusage).
+See the table of encoding types in Metatrader's string marshalling description [here](https://www.mql5.com/es/docs/constants/io_constants/codepageusage).
 
 If sendTX() fails transmission, it will return an empty string.
 Also, the amount of retries and timeouts can be configured.
