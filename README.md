@@ -32,7 +32,7 @@ If sendTX() fails transmission, it will return an empty string.
 Also, the amount of retries and timeouts can be configured.
 
 (continuing the above example)
-```mt4
+```mql4
 myNewWorker.setRequestRetries(3);    //it will retry 3 times before return (default 3)
 myNewWorker.setRequestTimeout(2500); //milliseconds (1s = 1000ms), (default 2500ms)
 ```
@@ -43,7 +43,7 @@ until they are explicitly changed.\
 If you get an empty string, you can verify what happened retrieving the error code and\
 the log string of the error.
 
-```mt4
+```mql4
 if (myNewWorker.hasError())  {      //if has error
     int error =  myNewWorker.getLastError();
     string error_log = myNewWorker.getLErrContext();
