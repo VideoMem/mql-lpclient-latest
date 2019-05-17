@@ -78,8 +78,8 @@ Also, you can test it directly from a Windows terminal using the lpclient_test.e
 
 ## Goals
 
-Reliable communication when one or many workers have delayed replies.
-Reliable communication when one or many workers crashes, and some external procedure restarts them.
+Reliable communication when one or many workers have delayed replies.\
+Reliable communication when one or many workers crashes, and some external procedure restarts them.\
 Stable application control, when things don't go as expected.
 
 ## Limitations
