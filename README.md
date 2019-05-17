@@ -83,7 +83,8 @@ Optionally you can test its functionality installing Experts/lpclient_test.mq4 i
 to each worker on every Tick.
 - Close one or both servers, see what happens, open them again, see the results.
 
-Also, you can test it directly from a Windows terminal using the lpclient_test.exe provided in lpc/bin folder.
+Also, you can test it directly from a Windows terminal using the lpclient_test.exe provided in lpc/bin folder.\
+Automated testing routines are described [here](https://github.com/swilwerth/mql-lpclient-latest/blob/master/lpc/lpclient_test.cpp)
 
 
 ## Limitations
