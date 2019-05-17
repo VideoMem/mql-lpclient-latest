@@ -22,7 +22,7 @@ It provides:
 - Stable application control, when things don't go as expected.
 
 It tries to preserve the string encoding, however at this release,\
-the Unicode pangram test will fail.
+the Unicode pangram test will fail.\
 It works well on Wine 3.0, also.
 
 
