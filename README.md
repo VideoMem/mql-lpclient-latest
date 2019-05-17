@@ -47,7 +47,7 @@ if (myNewWorker.hasError())  {      //if has error
     int error =  myNewWorker.getLastError();
     string error_log = myNewWorker.getLErrContext();
 
-    if(error == LPC_ERR_REXCEED:
+    if(error == LPC_ERR_REXCEED) {
         Print("Cannot connect, retries exceeded ...");
         Print(string_error);
     }
