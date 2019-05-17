@@ -14,16 +14,16 @@ Servers/Workers should be a REP type, as in standard synchronous REQ/REP.\
 
 With this package you can connect and communicate from one Metatrader's EA agent thread,\
 to one or many ZMQ REP servers through a text style messaging API calls.\
-Its intended for RPC interfacing some complex procedures found in EAs.\
+Its intended for RPC interfacing some complex procedures found in EAs.
 
 It provides:
-- Reliable communication when one or many workers have delayed replies.\
-- Reliable communication when one or many workers crashes, and some external procedure restarts them.\
+- Reliable communication when one or many workers have delayed replies.
+- Reliable communication when one or many workers crashes, and some external procedure restarts them.
 - Stable application control, when things don't go as expected.
 
 It tries to preserve the string encoding, however at this release,\
 the Unicode pangram test will fail.
-It works well on Wine 3.0, also.\
+It works well on Wine 3.0, also.
 
 
 The default string encoding method for transferring can be set as:
