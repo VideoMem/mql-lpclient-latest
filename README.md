@@ -8,7 +8,7 @@ Reliable Request/Reply (RRR) aka. [Lazy Pirate client pattern](http://zguide.zer
 It provides a high-level abstraction for this common pattern, a REQ/REP with a\
 settable timeout and connection retries attempts.\
 It can be used as a robust text transport to a plain socket interfacing/communication in\MetaTrader platform.\
-Servers/Workers should be a REP type, as in standard synchronous REQ/REP.\
+Servers/Workers should be a REP type, as in standard synchronous REQ/REP.
 
 ## Features
 
