@@ -76,6 +76,12 @@ to each worker on every Tick.
 
 Also, you can test it directly from a Windows terminal using the lpclient_test.exe provided in lpc/bin folder.
 
+## Goals
+
+Reliable communication when one or many workers have delayed replies.
+Reliable communication when one or many workers crashes, and some external procedure restarts them.
+Stable application control, when things don't go as expected.
+
 ## Limitations
 You can add up to 65535 servers to this client, if you need more than this, please let me know.\
 However, you can alter the
