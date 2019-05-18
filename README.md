@@ -170,13 +170,14 @@ and make a symbolic link to libzmq.dll
 - Run build-lnx.sh
 
 ## TODO
-- Add usage examples
 - Add a complete API documentation
-- Add build documentation
-- Add more compilers support
 - Fix CmakeLists.txt to allow the cross build of lpclient_test.exe
-- Add x64 builds for MT5 x64 platforms
+- Add build documentation
+- Add better testing
 - Add a pipe log for the console output and API methods for retrieving its contents.
+- Add more compilers support
+- Add x64 builds for MT5 x64 platforms
+- Release them as a first version.
 
 # Improvement scenarios
 Other patterns\
