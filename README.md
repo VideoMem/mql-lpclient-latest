@@ -7,7 +7,7 @@ This project contains an approach at object level abstraction of the\
 Reliable Request/Reply (RRR) aka. [Lazy Pirate client pattern](http://zguide.zeromq.org/php:chapter4).\
 It provides a high-level abstraction for this common pattern, a REQ/REP with a\
 settable timeout and connection retries attempts.\
-It can be used as a robust text transport to a plain socket interfacing communication in MetaTrader platform.\
+It can be used as a robust text transport instead of implementations that use a plain socket interfacing communication in MetaTrader platform.\
 Servers/Workers should be a REP type, as in standard synchronous REQ/REP.
 
 ## Features
@@ -84,7 +84,7 @@ to each worker on every Tick.
 - Close one or both servers, see what happens, open them again, see the results.
 
 Also, you can test it directly from a Windows terminal using the lpclient_test.exe provided in lpc/bin folder.\
-Automated testing routines are described [here](https://github.com/swilwerth/mql-lpclient-latest/blob/master/lpc/lpclient_test.cpp)\
+Automated testing routines are described [here](https://github.com/swilwerth/mql-lpclient-latest/blob/master/lpc/lpclient_test.cpp)
 
 Example tests invocation:
 > $ wine [lpc_client.exe](https://github.com/swilwerth/mql-lpclient-latest/blob/master/lpc/bin/lpclient_test.exe)\
