@@ -1,5 +1,5 @@
-#ifndef SDL_CRT_FILTER_WAVEFMT_H
-#define SDL_CRT_FILTER_WAVEFMT_H
+#ifndef LPC_HARDTYPES_H
+#define LPC_HARDTYPES_H
 
 #include <cinttypes>
 #include <iostream>
