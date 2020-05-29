@@ -27,7 +27,7 @@ const string nullworker_addr() {
 }
 
 const string rPay() {
-    string payload = "#this is a R script";
+    string payload = "#this is an R script";
     return payload;
 }
 

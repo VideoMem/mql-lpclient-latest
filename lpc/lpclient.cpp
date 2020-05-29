@@ -18,4 +18,5 @@ size_t LPCCALL string_echo(wchar_t* src, wchar_t* dst) {
 size_t LPCCALL char_echo(const char* src, char* dst, int_t len) {
     strncpy(dst, src, len);
     dst[len] = 0;
+    return len;
 }

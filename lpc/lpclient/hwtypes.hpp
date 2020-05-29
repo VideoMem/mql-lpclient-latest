@@ -1,3 +1,6 @@
+#ifndef SDL_CRT_FILTER_WAVEFMT_H
+#define SDL_CRT_FILTER_WAVEFMT_H
+
 #include <cinttypes>
 #include <iostream>
 #include <sstream>
@@ -29,15 +32,19 @@ size_t wstring_size(const wstring& s) {
 //String marshalling from DLL call string_t* argument to std::string
 void string_marshall(const wchar_t* s, string &d) {
     wstring wcstring = s;
-    char cstr[wstring_size(wcstring)];
+    auto cstr = new char[wstring_size(wcstring)];
     wcstombs(cstr, s, wstring_size(wcstring));
     d = cstr;
+    delete[] cstr;
 }
 
 //String de-marshalling from std::string to string_t*  DLL call argument
 void string_unmarshall(const string &s, wchar_t* d) {
-    wchar_t wcstr[string_size(s)];
+    auto wcstr = new wchar_t[string_size(s)];
     mbstowcs(wcstr, s.c_str(), string_size(s));
     wstring wcstring = wcstr;
     wcscpy(d,wcstring.c_str());
+    delete[] wcstr;
 }
+
+#endif

@@ -1,4 +1,8 @@
+#ifndef LPCLIENT_HPP
+#define LPCLIENT_HPP
+
 #include "zhelpers.hpp"
+#include "hwtypes.hpp"
 
 class LazyPirate {
     protected:
@@ -10,8 +14,8 @@ class LazyPirate {
         int request_timeout;
         int error_code;
         string error_context;
-        zmq::socket_t *client;
-        zmq::context_t *context;
+        zmq::socket_t *client = nullptr;
+        zmq::context_t *context = nullptr;
         void init();
         void close();
         void connect();
@@ -19,7 +23,8 @@ class LazyPirate {
         void safeSend(stringstream&);
         void safePoll(zmq::pollitem_t*);
         void safeRecv(string&);
-
+        void safeSend(char&, size_t);
+        size_t safeRecv(char&);
    public:
         bool    hasError()        { return error_code==0 ? true: false; }
         int     getLastError()    { return error_code; }
@@ -37,8 +42,17 @@ class LazyPirate {
         void    getLastReply(string &r)     { r = reply_buffer; }
         void    getLastReplySize(size_t &s) { s = reply_size; }
         string  sendTX(string payload);
+        size_t sendTX(char &payload, size_t size, char &recv);
+        size_t  sendTX(char &payload, size_t size ) {
+            auto recv = new char[size];
+            size_t rxsize = sendTX(payload, size, *recv);
+            delete [] recv;
+            return rxsize;
+        }
         LazyPirate();
         ~LazyPirate();
+
+
 };
 
 LazyPirate::LazyPirate() {
@@ -53,8 +67,10 @@ void LazyPirate::init() {
 }
 
 void LazyPirate::close() {
-   client->close();
-   delete client;
+   if(client != nullptr) {
+       client->close();
+       delete client;
+   }
 }
 
 LazyPirate::~LazyPirate() {
@@ -78,6 +94,7 @@ void LazyPirate::connect() {
 
 void LazyPirate::safeSend(stringstream &m) {
     try {
+        assert(client != nullptr && "Not ready, null client\n");
         s_send (*client, m.str());
     } catch (int e) {
         setError(e, name + "::safeSend()");
@@ -121,7 +138,7 @@ string LazyPirate::sendTX(string payload) {
                 safeRecv(reply);
                 //reply = s_recv (*client);
                 if (reply.size() > 0) {
-                    cout << "I: server replied OK (" << reply.size() << ") bytes" << endl;
+                    //cout << "I: server replied OK (" << reply.size() << ") bytes" << endl;
                     retries_left = 0;
                     expect_reply = false;
                     setError(LPC_ERR_NOERROR, name + "::sendTX() sucess!");
@@ -154,8 +171,82 @@ string LazyPirate::sendTX(string payload) {
     return reply;
 }
 
+
+size_t LazyPirate::sendTX(char &payload, size_t size, char &recv) {
+    int retries_left = request_retries;
+    size_t recv_size = -1;
+    while (retries_left) {
+        safeSend(payload , size);
+
+        bool expect_reply = true;
+        while (expect_reply) {
+            //  Poll socket for a reply, with timeout
+            zmq::pollitem_t items[] = { { (void*) *client, 0, ZMQ_POLLIN, 0 } };
+            safePoll(items);
+            //  If we got a reply, process it
+            if (items[0].revents & ZMQ_POLLIN) {
+                //  We got a reply from the server
+                recv_size = safeRecv(recv);
+                //reply = s_recv (*client);
+                if (recv_size > 0) {
+                    //cout << "I: server replied OK (" << recv_size << ") bytes" << endl;
+                    retries_left = 0;
+                    expect_reply = false;
+                    setError(LPC_ERR_NOERROR, name + "::sendTX() sucess!");
+                }
+                else {
+                    cout << "E: malformed reply from server "  << endl;
+                }
+            }
+            else
+            if (--retries_left == 0) {
+                cout << "E: server seems to be offline, abandoning" << endl;
+                expect_reply = false;
+                setError(LPC_ERR_REXCEED, name + "::sendTX() retries exceeded");
+                close();
+                connect();
+                break;
+            }
+            else {
+                cout << "W: no response from server, retrying..." << endl;
+                //  Old socket will be confused; close it and open a new one
+                close();
+                connect();
+                //  Send request again, on new socket
+                safeSend(payload, size);
+            }
+        }
+    }
+    return recv_size;
+}
+
+void LazyPirate::safeSend(char& msg, size_t size) {
+    try {
+        assert(client != nullptr && "Not ready, null client\n");
+        client->send (&msg, size, 0);
+    } catch (int e) {
+        setError(e, name + "::safeSend()");
+    }
+}
+
+size_t LazyPirate::safeRecv(char &msg) {
+    try {
+        zmq::message_t message;
+        client->recv(&message, 0);
+        memcpy(&msg, message.data(), message.size());
+        return message.size();
+    } catch (int e) {
+        setError(e, name + "::safeRecv()");
+        return -1;
+    }
+}
+
 class Worker: public LazyPirate {
     public:
         Worker(string addr) { setName("Worker"); setAddr(addr); connect(); }
+        ~Worker() {};
         void echo(string p);
+
 };
+
+#endif
